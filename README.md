@@ -1,1 +1,1 @@
-[DEMO LINK](https://mykola-shcherbak.github.io/react_movies-list-fetch-movies/)
+[DEMO LINK](https://mykola-shcherbak.github.io/tic_tac_toe)
