@@ -14,12 +14,12 @@ const combs = [
   [2, 4, 6],
 ];
 
-const vinCheck = board => combs
+const winCheck = board => combs
   .some(comb => board[comb[0]]
     && board[comb[0]] === board[comb[2]]
     && board[comb[0]] === board[comb[1]]);
 
-const isVinAvaliable = (board) => {
+const isWinAvaliable = (board) => {
   for (let i = 0; i < 8; i += 1) {
     const [a, b, c] = combs[i];
     const line = [board[a], board[b], board[c]];
@@ -39,13 +39,13 @@ export const Game = () => {
   const [firstPlayer, setFirstPlayer] = useState('x');
   const [secondPlayer, setsecondPlayer] = useState('o');
   const [nextMoove, setNextMoove] = useState('x');
-  const vinner = vinCheck(board);
-  const pad = isVinAvaliable(board);
+  const winner = winCheck(board);
+  const pad = isWinAvaliable(board);
 
   const moove = (index) => {
     const boardCopy = [...board];
 
-    if (!board[index] && !vinner) {
+    if (!board[index] && !winner) {
       boardCopy[index] = nextMoove === 'x' ? 'x' : 'o';
       setBoard(boardCopy);
       setNextMoove(nextMoove === 'x' ? 'o' : 'x');
@@ -58,8 +58,8 @@ export const Game = () => {
   };
 
   const chooseText = () => {
-    if (vinner) {
-      return `vinner is ${nextMoove === 'x' ? secondPlayer : firstPlayer}`;
+    if (winner) {
+      return `Winner is ${nextMoove === 'x' ? secondPlayer : firstPlayer}`;
     }
 
     if (pad) {
