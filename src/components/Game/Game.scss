@@ -1,0 +1,14 @@
+.game {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  &__players {
+    display: flex;
+    gap: 20px;
+  }
+}
+
